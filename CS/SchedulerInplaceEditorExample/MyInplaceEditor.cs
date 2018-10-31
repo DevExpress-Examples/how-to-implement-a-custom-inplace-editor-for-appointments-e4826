@@ -44,6 +44,11 @@ namespace SchedulerInplaceEditorExample {
             edtSubject.KeyDown += new KeyEventHandler(Editor_KeyDown);
             edtDescription.KeyDown += new KeyEventHandler(Editor_KeyDown);
         }
+        private void UnsubscribeKeyDownEvents() {
+            appointmentLabelEdit1.KeyDown -= new KeyEventHandler(AppointmentLabelEdit_KeyDown);
+            edtSubject.KeyDown -= new KeyEventHandler(Editor_KeyDown);
+            edtDescription.KeyDown -= new KeyEventHandler(Editor_KeyDown);
+        }
 
         // Create a KeyDown event handler.
         // If the Enter key is pressed, save changes. If the ESC key is pressed, cancel changes.
@@ -76,7 +81,7 @@ namespace SchedulerInplaceEditorExample {
         }
         protected override void OnShown(EventArgs e) {
             // Correct the text editor selection, which may result in overwriting the first typed character.
-            SchedulerStorage storage = control.Storage;
+            SchedulerDataStorage storage = control.DataStorage as SchedulerDataStorage;
             if (storage.Appointments.IsNewAppointment(appointment)) {
                 edtSubject.SelectionLength = 0;
                 edtSubject.SelectionStart = edtSubject.Text.Length;
@@ -87,8 +92,8 @@ namespace SchedulerInplaceEditorExample {
         // Fill the controls with appointment data. 
         public void FillForm(SchedulerControl control, Appointment appointment) {
             this.appointment = appointment;
-            SchedulerStorage storage = control.Storage;
-            this.appointmentLabelEdit1.Storage = control.Storage; 
+            SchedulerDataStorage storage = control.DataStorage as SchedulerDataStorage;
+            this.appointmentLabelEdit1.Storage = control.DataStorage; 
             this.appointmentLabelEdit1.AppointmentLabel = storage.Appointments.Labels.GetById(appointment.LabelKey);
             this.edtSubject.Text = appointment.Subject;
             this.edtDescription.Text = appointment.Description;
@@ -97,7 +102,7 @@ namespace SchedulerInplaceEditorExample {
         public void ApplyChanges() {
             appointment.Subject = edtSubject.Text;
             appointment.Description = edtDescription.Text;
-            appointment.LabelKey = control.Storage.Appointments.Labels.IndexOf(appointmentLabelEdit1.AppointmentLabel);
+            appointment.LabelKey = control.DataStorage.Appointments.Labels.IndexOf(appointmentLabelEdit1.AppointmentLabel);
         }
 
 
@@ -123,6 +128,11 @@ namespace SchedulerInplaceEditorExample {
                 result = new Rectangle(screenEditorBounds.Left - width - horzOffset, top, width, height);
             }
             return result;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            base.OnFormClosing(e);
+            UnsubscribeKeyDownEvents();
         }
     }
     #endregion #MyInplaceEditor
