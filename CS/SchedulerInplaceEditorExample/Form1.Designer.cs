@@ -1,4 +1,6 @@
-﻿namespace SchedulerInplaceEditorExample {
+﻿using SchedulerDbExample;
+
+namespace SchedulerInplaceEditorExample {
     partial class Form1 {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +30,12 @@
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.schedulerTestDataSet = new SchedulerInplaceEditorExample.SchedulerTestDataSet();
+            this.schedulerTestDataSet = new SchedulerDbExample.SchedulerTestDataSet();
             this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentsTableAdapter = new SchedulerInplaceEditorExample.SchedulerTestDataSetTableAdapters.AppointmentsTableAdapter();
-            this.resourcesTableAdapter = new SchedulerInplaceEditorExample.SchedulerTestDataSetTableAdapters.ResourcesTableAdapter();
+            this.appointmentsTableAdapter = new SchedulerDbExample.SchedulerTestDataSetTableAdapters.AppointmentsTableAdapter();
+            this.resourcesTableAdapter = new SchedulerDbExample.SchedulerTestDataSetTableAdapters.ResourcesTableAdapter();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
@@ -125,12 +127,12 @@
         #endregion
 
         private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerStorage1;
         private SchedulerTestDataSet schedulerTestDataSet;
         private System.Windows.Forms.BindingSource appointmentsBindingSource;
-        private SchedulerTestDataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
+        private SchedulerDbExample.SchedulerTestDataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
         private System.Windows.Forms.BindingSource resourcesBindingSource;
-        private SchedulerTestDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
+        private SchedulerDbExample.SchedulerTestDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }
