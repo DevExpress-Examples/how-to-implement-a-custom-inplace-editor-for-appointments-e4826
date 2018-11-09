@@ -28,7 +28,7 @@
             DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
             DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schedulerTestDataSet = new SchedulerInplaceEditorExample.SchedulerTestDataSet();
             this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -125,7 +125,7 @@
         #endregion
 
         private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerStorage1;
         private SchedulerTestDataSet schedulerTestDataSet;
         private System.Windows.Forms.BindingSource appointmentsBindingSource;
         private SchedulerTestDataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
