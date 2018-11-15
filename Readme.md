@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/SchedulerInplaceEditorExample/Form1.cs) (VB: [Form1.vb](./VB/SchedulerInplaceEditorExample/Form1.vb))
+* [MyInplaceEditor.cs](./CS/SchedulerInplaceEditorExample/MyInplaceEditor.cs) (VB: [MyInplaceEditorControl.vb](./VB/SchedulerInplaceEditorExample/MyInplaceEditorControl.vb))
+* [MyInplaceEditorControl.cs](./CS/SchedulerInplaceEditorExample/MyInplaceEditorControl.cs) (VB: [MyInplaceEditorControl.vb](./VB/SchedulerInplaceEditorExample/MyInplaceEditorControl.vb))
+<!-- default file list end -->
 # How to implement a custom inplace editor for appointments
 
 
