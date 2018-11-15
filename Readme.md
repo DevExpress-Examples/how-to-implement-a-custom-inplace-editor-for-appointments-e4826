@@ -1,3 +1,11 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/SchedulerCustomInplaceEditor/Form1.cs)
+* [MyInplaceEditor.cs](./CS/SchedulerCustomInplaceEditor/MyInplaceEditor.cs)
+* [MyInplaceEditorControl.cs](./CS/SchedulerCustomInplaceEditor/MyInplaceEditorControl.cs)
+* [Program.cs](./CS/SchedulerCustomInplaceEditor/Program.cs)
+<!-- default file list end -->
 # How to implement a custom inplace editor for appointments
 
 
