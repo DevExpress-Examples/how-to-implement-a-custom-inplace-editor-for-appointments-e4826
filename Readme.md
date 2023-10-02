@@ -6,7 +6,7 @@
 
 # WinForms Scheduler - Create a custom in-place edit form
 
-Read the following help topic to step-by-step instructions: [How To Implement a Custom In-place Editor for Appointments](https://docs.devexpress.com/WindowsForms/2301/controls-and-libraries/scheduler/examples/forms/how-to-implement-a-custom-inplace-editor-for-appointments).
+Read the following help topic for step-by-step instructions: [How To Implement a Custom In-place Editor for Appointments](https://docs.devexpress.com/WindowsForms/2301/controls-and-libraries/scheduler/examples/forms/how-to-implement-a-custom-inplace-editor-for-appointments).
 
 > **Note**
 >
