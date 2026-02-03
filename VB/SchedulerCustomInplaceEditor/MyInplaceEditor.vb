@@ -1,26 +1,30 @@
-﻿#Region "#myinplaceeditor"
-Imports Microsoft.VisualBasic
+'#Region "#myinplaceeditor"
 Imports System
 Imports System.Windows.Forms
 Imports DevExpress.XtraScheduler
 
-Namespace SchedulerCustomInplaceEditor_VB
-    Partial Public Class MyInplaceEditor
+Namespace SchedulerCustomInplaceEditor
+
+    Public Partial Class MyInplaceEditor
         Inherits DevExpress.XtraEditors.XtraForm
+
         Private appointment As Appointment
+
         Private control As SchedulerControl
 
         Public Sub New()
             InitializeComponent()
             SubscribeKeyDownEvents()
         End Sub
+
         Public Event CommitChanges As EventHandler
+
         Public Event RollbackChanges As EventHandler
 
         Private Sub SubscribeKeyDownEvents()
-            AddHandler AppointmentLabelEdit1.KeyDown, AddressOf AppointmentLabelEdit_KeyDown
-            AddHandler edtSubject.KeyDown, AddressOf Editor_KeyDown
-            AddHandler edtDescription.KeyDown, AddressOf Editor_KeyDown
+            AddHandler appointmentLabelEdit1.KeyDown, New KeyEventHandler(AddressOf AppointmentLabelEdit_KeyDown)
+            AddHandler edtSubject.KeyDown, New KeyEventHandler(AddressOf Editor_KeyDown)
+            AddHandler edtDescription.KeyDown, New KeyEventHandler(AddressOf Editor_KeyDown)
         End Sub
 
         ' Create a KeyDown event handler.
@@ -37,9 +41,7 @@ Namespace SchedulerCustomInplaceEditor_VB
         End Sub
 
         Public Sub AppointmentLabelEdit_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs)
-            If (Not AppointmentLabelEdit1.IsPopupOpen) Then
-                Editor_KeyDown(sender, e)
-            End If
+            If Not appointmentLabelEdit1.IsPopupOpen Then Editor_KeyDown(sender, e)
         End Sub
 
         Private Sub OnCommitChanges()
@@ -49,6 +51,7 @@ Namespace SchedulerCustomInplaceEditor_VB
         Private Sub OnRollbackChanges()
             RaiseEvent RollbackChanges(Me, EventArgs.Empty)
         End Sub
+
         Protected Overrides Sub OnShown(ByVal e As EventArgs)
             ' Correct the text editor selection, which may result in overwriting the first typed character.
             Dim storage As SchedulerStorage = control.Storage
@@ -56,6 +59,7 @@ Namespace SchedulerCustomInplaceEditor_VB
                 edtSubject.SelectionLength = 0
                 edtSubject.SelectionStart = edtSubject.Text.Length
             End If
+
             MyBase.OnShown(e)
         End Sub
 
@@ -64,17 +68,18 @@ Namespace SchedulerCustomInplaceEditor_VB
             Me.appointment = appointment
             Me.control = control
             Dim storage As SchedulerStorage = control.Storage
-            Me.AppointmentLabelEdit1.Storage = storage
-            Me.AppointmentLabelEdit1.Label = storage.Appointments.Labels(appointment.LabelId)
-            Me.edtSubject.Text = appointment.Subject
-            Me.edtDescription.Text = appointment.Description
+            appointmentLabelEdit1.Storage = storage
+            appointmentLabelEdit1.Label = storage.Appointments.Labels(appointment.LabelId)
+            edtSubject.Text = appointment.Subject
+            edtDescription.Text = appointment.Description
         End Sub
-        ' Save changes to the appointment. 
+
+        ' Save changes to the appointment.
         Public Sub ApplyChanges()
             appointment.Subject = edtSubject.Text
             appointment.Description = edtDescription.Text
-            appointment.LabelId = control.Storage.Appointments.Labels.IndexOf(AppointmentLabelEdit1.Label)
+            appointment.LabelId = control.Storage.Appointments.Labels.IndexOf(appointmentLabelEdit1.Label)
         End Sub
     End Class
 End Namespace
-#End Region ' #myinplaceeditor
+'#End Region  ' #myinplaceeditor
