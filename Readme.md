@@ -13,7 +13,7 @@ Read the following help topic for step-by-step instructions: [How To Implement a
 >
 > There is no default in-place editor in the [Agenda View](https://docs.devexpress.com/WindowsForms/115961/controls-and-libraries/scheduler/views/agenda-view). The [InplaceEditorShowing](https://docs.devexpress.com/WindowsForms/DevExpress.XtraScheduler.SchedulerControl.InplaceEditorShowing) event does not raise for the Agenda View.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-implement-a-custom-inplace-editor-for-appointments-e4826&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-implement-a-custom-inplace-editor-for-appointments-e4826&~~~was_helpful=no)
 
